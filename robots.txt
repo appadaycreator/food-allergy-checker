@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://appadaycreator.com/food-allergy-checker/sitemap.xml
