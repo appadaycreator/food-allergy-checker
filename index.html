@@ -69,8 +69,27 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
             .result-value { font-size: 28px; }
         }
         /* ── サービス固有CSS ── */
+        .quiz-opt { width:100%; padding:12px 14px; margin-bottom:8px; border:2px solid #e5e7eb; border-radius:10px; font-size:14px; cursor:pointer; background:#fff; text-align:left; transition:border-color .15s, background .15s; }
+        .quiz-opt:hover { border-color:#7c3aed; background:#f5f3ff; }
+        .quiz-opt:active { transform:scale(0.99); background:#ede9fe; }
+        .quiz-opt:focus-visible { outline:3px solid #7c3aed; outline-offset:2px; }
+        .quiz-back { width:100%; padding:8px 14px; margin-top:4px; border:1.5px solid #d1d5db; border-radius:8px; font-size:13px; cursor:pointer; background:transparent; color:#6b7280; text-align:center; transition:background .15s, color .15s; }
+        .quiz-back:hover { background:#f9fafb; color:#374151; border-color:#9ca3af; }
+        .quiz-back:focus-visible { outline:3px solid #7c3aed; outline-offset:2px; }
+        .result-section { border-radius:12px; padding:16px; margin-bottom:12px; }
+        .result-avoid { background:#fef2f2; }
+        .result-alt { background:#f0fdf4; }
+        .result-eat { background:#eff6ff; }
+        .result-section h4 { font-size:13px; font-weight:700; margin-bottom:10px; }
+        .result-avoid h4 { color:#dc2626; }
+        .result-alt h4 { color:#16a34a; }
+        .result-eat h4 { color:#2563eb; }
+        .result-section ul { padding-left:16px; font-size:13px; line-height:1.9; margin:0; }
+        .result-avoid ul { color:#7f1d1d; }
+        .result-alt ul { color:#14532d; }
+        .result-eat ul { color:#1e3a8a; }
 
-    
+
 @media print{
   header,footer,nav,button,.no-print,
   [class*="share"],[class*="affiliate"],[id*="share"],
@@ -95,8 +114,9 @@ select,input[type=text],input[type=number],input[type=email],textarea{min-height
     <a href="#main-content" class="sr-only" style="position:absolute;top:8px;left:8px;background:#7c3aed;color:white;padding:8px 16px;border-radius:6px;z-index:9999;text-decoration:none;font-size:14px;" tabindex="1">メインコンテンツへスキップ</a>
 
     <header class="site-header" role="banner">
-        <div class="emoji" aria-hidden="true">🚫</div>
+        <div class="emoji" aria-hidden="true">🌿</div>
         <h1>食物アレルギー・除去食診断</h1>
+        <p style="font-size:15px;font-weight:600;opacity:1;margin-bottom:6px;">あなたに合った食生活を見つけよう</p>
         <p>アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断提案。登録不要・完全無料。</p>
     </header>
 
@@ -108,7 +128,7 @@ select,input[type=text],input[type=number],input[type=email],textarea{min-height
           <h2 style="font-size:18px;font-weight:700;margin-bottom:12px;">🚫 食物アレルギー・除去食診断</h2>
           <p style="color:#666;font-size:14px;margin-bottom:8px;">アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断提案。登録不要・完全無料。</p>
           <ul style="font-size:13px;color:#94a3b8;margin:0 0 16px 16px;"><li>質問数：5問</li><li>所要時間：約1分</li></ul>
-          <button class="btn" onclick="startQuiz()">診断スタート →</button>
+          <button class="btn" data-no-ux onclick="startQuiz()">診断スタート →</button>
         </div>
         <div id="quiz-area" style="display:none;">
           <div style="font-size:12px;color:#999;margin-bottom:8px;">
@@ -120,13 +140,7 @@ select,input[type=text],input[type=number],input[type=email],textarea{min-height
           <p id="q-text" style="font-size:16px;font-weight:600;margin-bottom:16px;"></p>
           <div id="q-options" class="space-y-2"></div>
         </div>
-        <div class="result" id="result">
-          <div class="card">
-            <h3 id="r-title" style="font-size:18px;font-weight:700;margin-bottom:8px;color:#7c3aed;"></h3>
-            <p id="r-desc" style="color:#444;font-size:14px;line-height:1.7;"></p>
-            <button class="btn" style="margin-top:16px;" onclick="location.reload()">もう一度診断</button>
-          </div>
-        </div>
+        <div class="result" id="result"></div>
 
         <!-- 関連サービス -->
         <div class="card" style="margin-top:8px;">
@@ -195,7 +209,7 @@ select,input[type=text],input[type=number],input[type=email],textarea{min-height
         </div>
     </main>
 
-    <footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+    <footer style="text-align:center;padding:20px;color:white;font-size:12px;background:#374151;margin-top:8px;">
         <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
         | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
         | <a href="terms.html" style="color:white;">利用規約</a>
@@ -206,59 +220,133 @@ select,input[type=text],input[type=number],input[type=email],textarea{min-height
 
     <script>
     const RESULTS = [
-      {title:'🌾 小麦アレルギータイプ — グルテンフリー生活のポイント',desc:'小麦アレルギーが疑われます。米・米粉・そば粉（そばアレルギーがなければ）・コーンスターチなどが代替主食になります。市販の「グルテンフリー」製品も増えており、楽天などで購入可能。外食では米粉麺やフォーを扱う店を探しましょう。確定診断は血液検査（特異的IgE検査）で行えます。必ず専門の医師に相談してください。'},
-      {title:'🥛 乳製品アレルギータイプ — 豆乳・アーモンドミルクへの切り替え',desc:'乳製品アレルギーが疑われます。牛乳→豆乳・アーモンドミルク・オーツミルク、チーズ→豆腐ベースのヴィーガンチーズなどが代替になります。カルシウムは小魚・緑葉野菜・豆類から補いましょう。市販のお菓子・パンにも乳成分が含まれるため、成分表示の「乳」「バター」「クリーム」の確認が必須です。'},
-      {title:'🥚 卵アレルギータイプ — 卵なし料理のコツ',desc:'卵アレルギーが疑われます。料理でのつなぎには「亜麻仁フラックスエッグ（亜麻仁粉+水）」、マヨネーズ代替には豆乳マヨが使えます。外食では「卵不使用」表記を確認しましょう。加工食品の「卵黄・全卵・卵白・マヨネーズ」表示に注意が必要です。症状が重い場合はエピペン処方について医師に相談することをお勧めします。'},
-      {title:'🦐 魚介・甲殻類アレルギータイプ — 外食時の注意点',desc:'魚介・甲殻類アレルギーが疑われます。えび・カニ・いか・たこなどは表示義務があるため、加工食品の確認が比較的しやすいです。だし・ソースに魚介エキスが含まれることがあるため外食時は調理方法を確認しましょう。タンパク質はチキン・豆類・大豆製品で十分補えます。必ず医師の診断を受け、アナフィラキシーのリスクがある場合はエピペンの携帯を検討してください。'}
+      {
+        title:'🌾 小麦アレルギータイプ — グルテンフリー生活のポイント',
+        type:'小麦アレルギー', color:'#d97706',
+        avoidFoods:['パン・うどん・パスタ・ラーメン','小麦粉を使ったお菓子（クッキー・ケーキ）','市販の醤油・ソース類（小麦含有）','揚げ物の衣・天ぷら粉・餃子の皮'],
+        altFoods:['米・ご飯・米粉パン・米粉麺','そば粉・コーンスターチ・片栗粉','グルテンフリー醤油・タマリ','市販の「グルテンフリー」製品（楽天・Amazonで入手可）'],
+        eatOutTips:['「グルテンフリー」対応メニューのある店を事前に確認','米粉麺・フォー・ガパオを扱うアジア料理店を活用','麺類はほぼ小麦なのでご飯ものを選ぶ','揚げ物の衣・フライにも注意'],
+        desc:'確定診断には血液検査（特異的IgE検査）が必要です。必ず専門の医師・アレルギー科にご相談ください。'
+      },
+      {
+        title:'🥛 乳製品アレルギータイプ — 植物性ミルクへの切り替え',
+        type:'乳製品アレルギー', color:'#3b82f6',
+        avoidFoods:['牛乳・チーズ・バター・ヨーグルト','クリームを含むお菓子・ケーキ・アイス','市販のパン・お菓子（乳成分含有）','カフェラテ・カプチーノなどミルク飲料'],
+        altFoods:['豆乳・アーモンドミルク・オーツミルク・ライスミルク','豆腐ベースのヴィーガンチーズ・豆乳ヨーグルト','カルシウムは小魚・緑葉野菜・豆類で補う','ブラックコーヒー・豆乳変更可能な店を選ぶ'],
+        eatOutTips:['バター・クリームソースのパスタ・グラタンは控える','成分表示の「乳」「バター」「クリーム」「カゼイン」を確認','ヴィーガン対応メニューを積極活用','コーヒーは豆乳変更可能な店を選ぶ'],
+        desc:'確定診断には血液検査（特異的IgE検査）が必要です。必ず専門の医師・アレルギー科にご相談ください。'
+      },
+      {
+        title:'🥚 卵アレルギータイプ — 卵なし料理のコツ',
+        type:'卵アレルギー', color:'#f59e0b',
+        avoidFoods:['生卵・ゆで卵・目玉焼き・卵焼き','マヨネーズ・卵ベースのソース','プリン・カスタード・卵入りお菓子','揚げ物の衣・かき揚げ・オムレツ'],
+        altFoods:['つなぎは亜麻仁フラックスエッグ（亜麻仁粉+水）','豆乳マヨネーズ・卵不使用マヨ（市販品あり）','タンパク質は豆腐・鶏むね肉・魚・豆類で補う','焼き菓子はりんごソース・バナナで代用可'],
+        eatOutTips:['「卵不使用」表記・メニューを確認','洋食・中華は卵多用なので注意','寿司・刺身はOK（醤油・酢飯確認）','「卵黄・全卵・卵白・マヨネーズ」表示を必ず確認'],
+        desc:'症状が重い場合はエピペン処方について医師にご相談ください。確定診断は血液検査（特異的IgE検査）で可能です。'
+      },
+      {
+        title:'🦐 魚介・甲殻類アレルギータイプ — 外食時の注意点',
+        type:'魚介・甲殻類アレルギー', color:'#06b6d4',
+        avoidFoods:['えび・カニ・いか・たこ・ホタテ','かまぼこ・ちくわなど魚介加工品','魚介エキス入りだし・ウスターソース','シーフードピザ・パスタ・リゾット'],
+        altFoods:['タンパク質はチキン・豚肉・豆類・大豆製品で補う','だしは昆布・野菜・チキンブロスを活用','「魚介エキス不使用」の市販だしを確認','えびの食感代替：エリンギが近い'],
+        eatOutTips:['中華料理はオイスターソース（牡蠣）使用に注意','宴席・コース料理は事前に店に伝える','ラーメン・鍋のスープに魚介エキスが多い','回転寿司ではえび・かに巻きに注意'],
+        desc:'えび・かには表示義務がありますが、交差汚染にも注意。アナフィラキシーリスクがある場合はエピペン携帯を医師に相談してください。'
+      },
+      {
+        title:'🫘 大豆アレルギータイプ — 隠れ大豆に注意',
+        type:'大豆アレルギー', color:'#84cc16',
+        avoidFoods:['豆腐・納豆・豆乳・油揚げ・枝豆','醤油・みそ（大豆発酵製品）','豆乳アイス・豆乳ヨーグルト','加工食品に含まれる大豆油・大豆たんぱく'],
+        altFoods:['醤油の代替：魚醤（ナンプラー）・ヤシ醤油','みそ汁の代替：コンソメ・昆布だしスープ','タンパク質は肉・魚・卵で補う','大豆不使用チーズ・ライスミルクを活用'],
+        eatOutTips:['和食は醤油・みそが必ず使われるため要確認','加工食品の「大豆」「大豆たんぱく」「大豆油」を確認','ヴィーガン・植物性食品は大豆ベースが多い','ドレッシング・マヨネーズに大豆油が含まれる場合が多い'],
+        desc:'大豆は多くの加工食品に含まれます。原材料表示を必ず確認してください。確定診断は血液検査（特異的IgE検査）で行えます。'
+      },
+      {
+        title:'🥜 ピーナッツ・ナッツアレルギータイプ — アナフィラキシーに注意',
+        type:'ピーナッツ・ナッツアレルギー', color:'#ef4444',
+        avoidFoods:['ピーナッツ・ピーナッツバター・落花生','アーモンド・くるみ・カシューナッツ・ヘーゼルナッツ','ナッツ入りチョコ・グラノーラ・ケーキ','ピーナッツ油（落花生油）を使った中華料理'],
+        altFoods:['タンパク質・脂質は肉・魚・大豆製品で補う（大豆アレルギーがなければ）','スプレッド代替はサンフラワーシードバター','グラノーラはナッツフリー品を選ぶ','ひまわりの種・かぼちゃの種（シード類）を活用'],
+        eatOutTips:['タイ料理・インド料理はナッツ多用のため要注意','チョコレート・スイーツは「ナッツフリー設備」を確認','中華炒め物はピーナッツ油使用の場合がある','重篤リスクがある場合は飲食店への事前連絡を'],
+        desc:'ピーナッツ・ナッツアレルギーはアナフィラキシーを引き起こすリスクがあります。エピペンの処方について必ず医師にご相談ください。'
+      }
     ];
     const QUESTIONS = [
       {text:'Q1. アレルギー症状が出やすいのはどんな時？',opts:['特定の食べ物を食べた直後（30分以内）','食後数時間〜翌日にかけて','季節に関係なく慢性的に出る','まだはっきり分からない']},
       {text:'Q2. 主な症状は何ですか？',opts:['じんましん・皮膚のかゆみ・赤み','胃痛・下痢・消化器症状','鼻水・くしゃみ・目のかゆみ','口の中・唇のかゆみ・腫れ']},
-      {text:'Q3. 反応しやすいと思う食べ物は？（最も近いもの）',opts:['小麦・パン・麺類など','乳製品（牛乳・チーズ・バターなど）','卵・卵を使った食品','魚介類・えび・カニ・そば']},
+      {text:'Q3. 反応しやすいと思う食べ物は？（最も近いもの）',opts:['小麦・パン・麺類など','乳製品（牛乳・チーズ・バターなど）','卵・卵を使った食品','魚介類・えび・カニ・そば','大豆・豆腐・豆乳・醤油など','ピーナッツ・ナッツ類（木の実）']},
       {text:'Q4. アレルギーの診断は受けていますか？',opts:['病院で診断済み（血液検査など）','自己判断で避けている食材がある','まだ診断を受けていない','疑わしいが確認できていない']},
       {text:'Q5. 除去食で最も困っていることは？',opts:['外食・食べられるメニューが少ない','代替食品が見つからない','栄養が偏りそうで心配','家族との食事が作りにくい']}
     ];
     function getResult(answers) {
-      const scores = [0,0,0,0];
+      const scores = [0,0,0,0,0,0];
       const a = answers.map(x => x.idx);
-      if(a[2]===0) scores[0]+=4;
-      if(a[2]===1) scores[1]+=4;
-      if(a[2]===2) scores[2]+=4;
-      if(a[2]===3) scores[3]+=4;
-      if(a[1]===0) { scores[0]+=1; scores[2]+=1; }
-      if(a[1]===1) { scores[1]+=1; }
-      if(a[1]===3) { scores[3]+=1; }
-      if(a[0]===0) { scores[2]+=1; scores[3]+=1; }
-      if(a[0]===2) { scores[0]+=1; scores[1]+=1; }
+      // Q3: 食べ物の種類が最も強い指標
+      [0,1,2,3,4,5].forEach(i => { if(a[2]===i) scores[i]+=4; });
+      // Q2: 症状の種類
+      if(a[1]===0) { scores[0]+=1; scores[2]+=1; scores[5]+=1; } // 皮膚 = 小麦・卵・ナッツ
+      if(a[1]===1) { scores[1]+=1; scores[4]+=1; }               // 消化器 = 乳・大豆
+      if(a[1]===3) { scores[3]+=1; scores[5]+=1; }               // 口・唇 = 魚介・ナッツ
+      // Q1: 症状が出るタイミング
+      if(a[0]===0) { scores[2]+=1; scores[3]+=1; scores[5]+=1; } // 直後 = 卵・魚介・ナッツ
+      if(a[0]===2) { scores[0]+=1; scores[1]+=1; scores[4]+=1; } // 慢性的 = 小麦・乳・大豆
       const best = scores.indexOf(Math.max(...scores));
       return RESULTS[best];
     }
-    // ★以下変更不要★
-    const BTN='#7c3aed'; let cur=0; const ans=[];
+    let cur=0; const ans=[];
     document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('q-total').textContent=QUESTIONS.length; });
-    function startQuiz(){ cur=0;ans.length=0; document.getElementById('quiz-start').style.display='none'; document.getElementById('quiz-area').style.display='block'; document.getElementById('result').classList.remove('show'); renderQ(); }
+    function startQuiz(){ cur=0;ans.length=0; document.getElementById('quiz-start').style.display='none'; document.getElementById('quiz-area').style.display='block'; document.getElementById('result').classList.remove('show'); document.getElementById('result').innerHTML=''; renderQ(); }
     function renderQ(){
       const q=QUESTIONS[cur];
       document.getElementById('q-num').textContent=cur+1;
       document.getElementById('q-bar').style.width=((cur+1)/QUESTIONS.length*100)+'%';
       document.getElementById('q-text').textContent=q.text;
-      document.getElementById('q-options').innerHTML=q.opts.map((o,i)=>`<button onclick="answer(${i})" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;background:#fff;text-align:left;">${o}</button>`).join('');
+      const backBtn=cur>0?`<button class="quiz-back" data-no-ux onclick="goBack()">← 前の質問に戻る</button>`:'';
+      document.getElementById('q-options').innerHTML=q.opts.map((o,i)=>`<button class="quiz-opt" data-no-ux onclick="answer(${i})">${o}</button>`).join('')+backBtn;
     }
+    function goBack(){ if(cur>0){ ans.pop(); cur--; renderQ(); } }
     function answer(idx){ ans.push({idx}); cur++; if(cur>=QUESTIONS.length) showResult(); else renderQ(); }
     function showResult(){
       document.getElementById('quiz-area').style.display='none';
       const r=getResult(ans);
-      document.getElementById('r-title').textContent=r.title;
-      document.getElementById('r-desc').textContent=r.desc;
+      const shareText=encodeURIComponent(r.type+'と診断されました！除去食・代替食品アドバイスを確認しよう #食物アレルギー診断 #無料ツール');
+      const shareUrl=encodeURIComponent('https://appadaycreator.com/food-allergy-checker/');
+      document.getElementById('result').innerHTML=`
+        <div class="card">
+          <div style="text-align:center;margin-bottom:16px;">
+            <span style="background:${r.color}22;color:${r.color};padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;">${r.type}</span>
+          </div>
+          <h3 style="font-size:17px;font-weight:700;margin-bottom:16px;color:#374151;line-height:1.5;">${r.title}</h3>
+          <div class="result-section result-avoid">
+            <h4>⚠️ 避けるべき食材</h4>
+            <ul>${r.avoidFoods.map(f=>`<li>${f}</li>`).join('')}</ul>
+          </div>
+          <div class="result-section result-alt">
+            <h4>✅ 代替食品・代替食材</h4>
+            <ul>${r.altFoods.map(f=>`<li>${f}</li>`).join('')}</ul>
+          </div>
+          <div class="result-section result-eat">
+            <h4>🍽️ 外食時のアドバイス</h4>
+            <ul>${r.eatOutTips.map(t=>`<li>${t}</li>`).join('')}</ul>
+          </div>
+          <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;font-size:12px;color:#92400e;margin-bottom:16px;">⚕️ ${r.desc}</div>
+          <div style="text-align:center;margin-bottom:16px;">
+            <p style="font-size:13px;font-weight:600;color:#374151;margin-bottom:10px;">📣 結果をシェアする</p>
+            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+              <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener" aria-label="${r.type}の診断結果をXでシェア" style="background:#1DA1F2;color:white;padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center;">𝕏 シェア</a>
+              <a href="https://line.me/R/msg/text/?${shareText}%0A${shareUrl}" target="_blank" rel="noopener" aria-label="${r.type}の診断結果をLINEでシェア" style="background:#00B900;color:white;padding:8px 16px;border-radius:8px;font-size:13px;text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center;">LINE</a>
+            </div>
+          </div>
+          <button class="btn" data-no-ux onclick="resetQuiz()">もう一度診断する</button>
+        </div>`;
       document.getElementById('result').classList.add('show');
     }
+    function resetQuiz(){ cur=0;ans.length=0; document.getElementById('result').classList.remove('show'); document.getElementById('result').innerHTML=''; document.getElementById('quiz-start').style.display=''; }
     </script>
 <script id="ux-behavior">
 (function(){
 'use strict';
 function init(){
   // ローディング状態
-  document.querySelectorAll('button:not([type=reset]):not([data-ux]),input[type=submit]').forEach(function(b){
+  document.querySelectorAll('button:not([type=reset]):not([data-ux]):not([data-no-ux]),input[type=submit]:not([data-no-ux])').forEach(function(b){
     b.dataset.ux='1';
     var orig=b.tagName==='BUTTON'?b.textContent:(b.value||'実行');
     b.addEventListener('click',function(){
