@@ -1,4 +1,4 @@
-const CACHE_NAME = 'food-allergy-checker-v1.2.1';
+const CACHE_NAME = 'food-allergy-checker-v1.2.2';
 const ASSETS = [
   '/food-allergy-checker/',
   '/food-allergy-checker/index.html',

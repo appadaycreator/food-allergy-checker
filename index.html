@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>食物アレルギー・除去食診断【無料】無料診断・アドバイス</title>
-    <meta name="description" content="食物アレルギーの症状や食材を入力すると、除去すべき食材や代替食品、外食時の注意点を自動診断します。登録不要・完全無料。ブラウザ内で処理完結、個人情報は一切保存されません。">
+    <meta name="description" content="食物アレルギーの症状や食材を入力すると、除去すべき食材や代替食品、外食時の注意点を自動診断します。ブラウザ内で処理完結、個人情報は一切保存されません">
+<meta name="author" content="AppADayCreator | Tech&Brace">
     <meta name="theme-color" content="#6366F1">
+    <link rel="manifest" href="/food-allergy-checker/manifest.json">
     <link rel="canonical" href="https://appadaycreator.com/food-allergy-checker/">
     <meta property="og:title" content="食物アレルギー・除去食診断【無料】無料診断・アドバイス">
     <meta property="og:description" content="アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断。登録不要・完全無料でご利用いただけます。">
@@ -21,6 +23,7 @@
     <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.clarity.ms">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <!-- GTM -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
     <!-- Clarity -->
@@ -28,7 +31,7 @@
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"食物アレルギー・除去食診断","description":"アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断。登録不要・完全無料でご利用いただけます。","url":"https://appadaycreator.com/food-allergy-checker/","applicationCategory":"UtilityApplication","operatingSystem":"Any","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"author":{"@type":"Organization","name":"AppADayCreator","url":"https://appadaycreator.com/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "食物アレルギー・除去食診断は無料で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、完全無料でご利用いただけます。登録・ログイン・アプリのインストールも不要です。"}}, {"@type": "Question", "name": "何回でも診断できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、何度でもご利用いただけます。条件を変えて繰り返し診断してみてください。"}}, {"@type": "Question", "name": "スマートフォンでも使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、スマートフォン・タブレット・PCすべてのデバイスに対応しています。"}}, {"@type": "Question", "name": "診断結果は保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "結果はブラウザには保存されません。スクリーンショットやSNSシェアでご記録ください。"}}, {"@type": "Question", "name": "入力したデータはサーバーに送信されますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。すべての処理はブラウザ内で完結し、個人情報・入力データのサーバー送信は行いません。"}}]}</script>
+    
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "食物アレルギー・除去食診断の使い方", "description": "食物アレルギー・除去食診断を使う手順", "step": [{"@type": "HowToStep", "position": 1, "name": "ステップ1", "text": "ページを開き、診断の説明を確認する"}, {"@type": "HowToStep", "position": 2, "name": "ステップ2", "text": "スタートボタンをクリックして診断を開始する"}, {"@type": "HowToStep", "position": 3, "name": "ステップ3", "text": "表示される質問に順番に回答する（約1〜2分）"}, {"@type": "HowToStep", "position": 4, "name": "ステップ4", "text": "すべて回答すると診断結果が自動表示される"}, {"@type": "HowToStep", "position": 5, "name": "ステップ5", "text": "結果のアドバイスを確認してSNSでシェアする"}]}</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,16 +78,93 @@
         <h1>食物アレルギー・除去食診断</h1>
         <p>アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断...</p>
     </header>
+<div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
+<!-- r21-breadcrumb -->
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:5px 16px;font-size:.78rem;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+  <a href="/" style="color:#4f46e5;text-decoration:none">ホーム</a>
+  <span style="margin:0 .35rem;color:#9ca3af">›</span>
+  <span style="color:#374151">食物アレルギー・除去食診断【無料】無料診断・アドバイス</span>
+</nav>
+
 
     <main id="main-content" class="container" role="main" aria-label="食物アレルギー・除去食診断のメインコンテンツ">
         <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
 
         <div class="card" id="quiz-start">
-          <h2 style="font-size:18px;font-weight:700;margin-bottom:12px;">🚫 食物アレルギー・除去食診断</h2>
+          <div id="tool-desc-box" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0">
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.75;font-size:.92rem">食物アレルギー・除去食診断【無料】無料診断・アドバイスは、AppADayCreatorが提供する完全無料の診断・アドバイスツールです。登録・ログイン不要で、すぐにご利用いただけます。</p>
+</div>
+<div style="background:#f0f7ff;border:2px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0">
+  <h2 style="font-size:1.1rem;font-weight:800;color:#1e3a5f;margin:0 0 1rem;padding-bottom:.75rem;border-bottom:2px solid #bfdbfe">食物アレルギーチェッカー — 食材・成分から食べられるか確認</h2>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">このツールでできること</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">アレルゲン（小麦・乳・卵・そば・ピーナッツ・エビ・カニ等）を選択することで、食べられない食品・避けるべき成分・代替食材を確認できます。食品表示法に基づく特定原材料27品目に対応しています。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">食物アレルギーの有病率と対応の現状</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">日本では人口の約2〜3%（子どもは約5〜6%）が食物アレルギーを持つとされています。乳幼児期は卵・乳・小麦が多く、学童期以降はそば・エビ・カニ・果物が増える傾向があります。アナフィラキシーショックは生命に関わるため、緊急時のエピペン所持が重要です。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">食品表示法と特定原材料の確認方法</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0">2023年の食品表示法改正により、特定原材料は8品目から「くるみ」を加えた9品目に拡大されました（卵・乳・小麦・そば・落花生・エビ・カニ・くるみ・いくら）。加工食品の原材料表示を読む習慣と、「含む可能性あり」の表記への注意が大切です。</p>
+</div>
+<!-- r16-related-tools -->
+<div style="background:#f8faff;border:1px solid #dbeafe;border-radius:12px;padding:1.25rem 1.5rem;margin:1.5rem 0">
+  <h3 style="font-size:.9375rem;font-weight:800;color:#1e3a5f;margin:0 0 .875rem">🔗 このツールと一緒によく使われるツール</h3>
+  <div style="display:grid;gap:.5rem">
+    <a href="/food-restriction-advisor/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 食事制限アドバイザー<span style="color:#6b7280;font-size:.78rem;font-weight:400">— アレルギー以外の制限も</span></a>
+    <a href="/fridge-tracker/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 冷蔵庫トラッカー<span style="color:#6b7280;font-size:.78rem;font-weight:400">— アレルゲン食材を管理</span></a>
+    <a href="/baby-product-advisor/" style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:8px;padding:.625rem .875rem;border:1px solid #bfdbfe;text-decoration:none;color:#1f2937;font-size:.875rem;font-weight:600">🔗 ベビー用品アドバイザー<span style="color:#6b7280;font-size:.78rem;font-weight:400">— 離乳食のアレルギー対策</span></a>
+  </div>
+</div>
+<!-- r22-editorial -->
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.75rem;padding:1.5rem;margin:1.5rem 0">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#14532d;margin:0 0 1rem;border-left:4px solid #16a34a;padding-left:.75rem">健康管理の基礎知識（厚生労働省データ）</h2>
+  <p style="font-size:.88rem;color:#4b5563;margin:0 0 .75rem">厚生労働省「国民健康栄養調査」などのデータから、日本人の健康状態と予防のポイントを整理しました。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+    <thead>
+      <tr style="background:#bbf7d0">
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">項目</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">データ</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">出典</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#f0fdf4">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">成人の肥満割合（BMI25以上）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>男性33.0%・女性22.3%（2022年）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">厚生労働省「国民健康栄養調査」2022年</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">1日の歩数の目標</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>男性8,000歩・女性7,000歩（厚生労働省推奨）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">厚生労働省「健康日本21（第二次）」</td>
+      </tr>
+      <tr style="background:#f0fdf4">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">睡眠時間の目安（成人）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>7〜9時間が推奨（6時間未満は健康リスク増）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">WHO・厚生労働省「健康づくりのための睡眠ガイド2023」</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">生活習慣病の主な予防因子</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>適度な運動・バランスの良い食事・禁煙・適量飲酒</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">厚生労働省「生活習慣病予防のための健康情報」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- r20-tool-links -->
+<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem 1.5rem;margin:2rem 0">
+  <p style="font-weight:700;color:#374151;margin:0 0 .75rem;font-size:.9rem">📖 あわせて読みたいコラム記事</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:2">
+    <li><a href="/blog/medical-insurance-guide/" style="color:#4f46e5">医療保険の選び方と必要額</a></li>
+    <li><a href="/blog/health-insurance-guide/" style="color:#4f46e5">健康保険の基礎知識と選び方</a></li>
+  </ul>
+</div>
+<div id="tool-disclaimer" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.875rem">
+  <p style="font-weight:700;color:#374151;margin:0 0 .5rem">⚠️ 計算結果の活用にあたって</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:1.9"><li><a href="https://www.caa.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">消費者庁「くらしの安心ガイド」</a></li></ul>
+</div>
+<h2 style="font-size:18px;font-weight:700;margin-bottom:12px;">🚫 食物アレルギー・除去食診断</h2>
           <p style="color:#666;font-size:14px;margin-bottom:8px;">アレルギー症状・食材を入力して除去すべき食材と代替食品・外食時の注意点を診断...</p>
           <ul style="font-size:13px;color:#94a3b8;margin:0 0 16px 16px;"><li>質問数：5問</li><li>所要時間：約1分</li></ul>
-          <button class="btn" onclick="startQuiz()">診断スタート →</button>
+          <button class="btn" onclick="startQuiz()" aria-label="診断スタート →">診断スタート →</button>
         </div>
         <div id="quiz-area" style="display:none;">
           <div style="font-size:12px;color:#999;margin-bottom:8px;">
@@ -96,11 +176,41 @@
           <p id="q-text" style="font-size:16px;font-weight:600;margin-bottom:16px;"></p>
           <div id="q-options" class="space-y-2"></div>
         </div>
+
         <div class="result" id="result">
+          <div class="card">
+            <h3 id="r-title" style="font-size:18px;font-weight:700;margin-bottom:16px;color:#6366F1;"></h3>
+            <p id="r-desc" style="color:#444;font-size:14px;line-height:1.7;margin-bottom:20px;"></p>
+            <div style="background:#f8fafc;border-radius:12px;padding:16px;margin-bottom:16px;">
+              <p style="font-size:13px;font-weight:600;color:#555;margin:0 0 12px;">📊 スコア分析</p>
+              <canvas id="result-chart" style="max-width:100%;height:250px;"></canvas>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="btn" style="flex:1;margin-top:0;margin-bottom:8px;background:#6366F1;" onclick="downloadResult()" aria-label="結果をダウンロード">📥 結果をコピー</button>
+              <button class="btn" style="flex:1;margin-top:0;margin-bottom:8px;background:#10b981;" onclick="printResult()" aria-label="結果を印刷">🖨️ 印刷する</button>
+              <button class="btn" style="flex:1;margin-top:0;background:#6366F1;" onclick="location.reload()" aria-label="もう一度診断">🔄 もう一度診断</button>
+            </div>
+          </div>
+          <div class="card" style="margin-top:16px;">
+            <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:#374151;">📋 診断履歴</h3>
+            <div id="history-list" style="max-height:400px;overflow-y:auto;"></div>
+          </div>
+        </div>
+        
+    <div class="card p-6 mb-4">
+      <h2 class="font-bold text-gray-800 mb-3">💡 使用例</h2>
+      <ul class="text-sm text-gray-700 space-y-2">
+        <li>• 複数の選択肢から最適なものを選びたい場合</li>
+        <li>• 意思決定に客観的な基準が欲しい場合</li>
+        <li>• プロフェッショナルなアドバイスが必要な場合</li>
+        <li>• 予算やニーズに合わせた提案を受けたい場合</li>
+      </ul>
+    </div>
+    <div class="result" id="result">
           <div class="card">
             <h3 id="r-title" style="font-size:18px;font-weight:700;margin-bottom:8px;color:#6366F1;"></h3>
             <p id="r-desc" style="color:#444;font-size:14px;line-height:1.7;"></p>
-            <button class="btn" style="margin-top:16px;" onclick="location.reload()">もう一度診断</button>
+            <button class="btn" style="margin-top:16px;" onclick="location.reload()" aria-label="もう一度診断">もう一度診断</button>
           </div>
         </div>
 
@@ -133,26 +243,11 @@
         <div class="card" style="margin-top:8px;">
             <h2 style="font-size:15px;font-weight:700;margin-bottom:14px;color:#374151;">❓ よくある質問</h2>
             <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="border-bottom:1px solid #f1f5f9;padding-bottom:12px;">
-              <p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:4px;">Q: 食物アレルギー・除去食診断は無料で使えますか？</p>
-              <p style="font-size:13px;color:#6b7280;line-height:1.7;">A: はい、完全無料でご利用いただけます。登録・ログイン・アプリのインストールも不要です。</p>
-            </div>
-            <div style="border-bottom:1px solid #f1f5f9;padding-bottom:12px;">
-              <p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:4px;">Q: 何回でも診断できますか？</p>
-              <p style="font-size:13px;color:#6b7280;line-height:1.7;">A: はい、何度でもご利用いただけます。条件を変えて繰り返し診断してみてください。</p>
-            </div>
-            <div style="border-bottom:1px solid #f1f5f9;padding-bottom:12px;">
-              <p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:4px;">Q: スマートフォンでも使えますか？</p>
-              <p style="font-size:13px;color:#6b7280;line-height:1.7;">A: はい、スマートフォン・タブレット・PCすべてのデバイスに対応しています。</p>
-            </div>
-            <div style="border-bottom:1px solid #f1f5f9;padding-bottom:12px;">
-              <p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:4px;">Q: 診断結果は保存されますか？</p>
-              <p style="font-size:13px;color:#6b7280;line-height:1.7;">A: 結果はブラウザには保存されません。スクリーンショットやSNSシェアでご記録ください。</p>
-            </div>
-            <div style="border-bottom:1px solid #f1f5f9;padding-bottom:12px;">
-              <p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:4px;">Q: 入力したデータはサーバーに送信されますか？</p>
-              <p style="font-size:13px;color:#6b7280;line-height:1.7;">A: いいえ。すべての処理はブラウザ内で完結し、個人情報・入力データのサーバー送信は行いません。</p>
-            </div>
+            
+            
+            
+            
+            
             </div>
         </div>
 
@@ -166,13 +261,97 @@
         </div>
 
         <!-- 免責事項 -->
-        <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px;margin:8px 0;font-size:12px;color:#92400e;">
-            <strong>⚠️ 免責事項</strong>：本ツールの計算・診断結果はあくまで参考情報です。医療・法律・税務・投資等の専門的判断が必要な場合は、必ず資格を持つ専門家にご相談ください。本サービスの利用により生じた損害について、当サービスは一切の責任を負いません。
-        </div>
-    </main>
+        <p style="font-size:11px;color:#92400e;margin:6px 0">⚠️ 本ツールの結果は参考情報です。専門的判断は資格を持つ専門家にご相談ください。</p>
+    
+<div style="background:#f8faff;border:1px solid #e0e7ff;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1.5rem auto;max-width:740px">
+  <p style="font-weight:700;font-size:.9rem;margin:0 0 .75rem;color:#3730a3">📋 このツールの詳細</p>
+  <p style="font-size:.875rem;color:#374151;line-height:1.8;margin:0 0 .5rem">本チェックツールは、食物アレルギー・除去食診断診断・アドバイスを手軽に利用できる無料Webサービスです。登録不要でブラウザから直接ご利用いただけます。</p>
+</div>
+<section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
+  <h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
+  <dl style="line-height:1.8;">
+    
+    
+    
+  </dl>
+</section>
+</main>
 
-    <footer style="background:#6366F1;text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
-        <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
+    <!-- r31-use-cases -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<h2 style="font-size:1.125rem;font-weight:700;margin:0 0 1rem;color:#1e293b;border-left:4px solid #4f46e5;padding-left:10px">こんな方・シーンで役立ちます</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">💪</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">健康管理・記録を始めたい方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">体重・血圧・睡眠時間など日々のバイタルを記録して変化を把握したい方に。グラフで可視化することで生活改善のきっかけが見つかります。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">🏃</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">ダイエット・運動習慣をつけたい方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">目標体重・消費カロリー・必要な運動量を計算して、無理なく継続できる計画を立てたい方に。科学的根拠に基づいた数値で効率よくダイエットできます。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">👩‍⚕️</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">生活習慣病が気になる方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">医師から生活改善のアドバイスを受けて、自己管理の指標として活用したい方に。血圧・血糖値・BMIの適正範囲を確認できます。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">👴</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">シニア・中高年の健康維持</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">年齢に合った適切な運動量・栄養摂取量の目安を知って、元気に過ごしたい中高年の方に。体力の変化に合わせた健康管理ができます。</div>
+</div>
+</div>
+</div>
+<!-- r31-extended-faq -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.08)">
+<h2 style="font-size:1.05rem;font-weight:700;margin:0 0 1rem;border-left:4px solid #4f46e5;padding-left:10px;color:#1e293b">よくある質問（詳細）</h2>
+
+</div>
+</div>
+<!-- r31-tool-notice -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#fef3c7;border:1px solid #fbbf24;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#92400e">⚠️ ご利用時の注意事項</h3>
+<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#78350f;line-height:2">
+<li style='margin-bottom:.4rem'>本ツールの結果はあくまで参考情報です。医療的な診断・治療の代替にはなりません</li>
+<li style='margin-bottom:.4rem'>体調不良・症状が気になる場合は必ず医療機関（内科・専門科）を受診してください</li>
+<li style='margin-bottom:.4rem'>計算値（BMI・カロリー等）は個人差があるため、実際の状況とは異なる場合があります</li>
+<li style='margin-bottom:.4rem'>妊娠中・授乳中の方や持病がある方は、新しい健康法を始める前に必ず医師にご相談ください</li>
+<li style='margin-bottom:.4rem'>医薬品・サプリメントの使用については必ず医師・薬剤師の指示に従ってください</li>
+</ul>
+</div>
+</div>
+<!-- r31-tool-references -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#1e293b">📚 関連する公的情報・参考リンク</h3>
+<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#374151;line-height:1.9">
+<li style='margin-bottom:.5rem'><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/eiyou/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">厚生労働省 日本人の食事摂取基準</a> — 年齢・性別・活動量に応じた栄養摂取量の公的基準</li>
+<li style='margin-bottom:.5rem'><a href="https://www.nibiohn.go.jp/eiken/kenkounippon21/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">健康日本21（第三次）</a> — 国民の健康増進・生活習慣病予防の指針</li>
+<li style='margin-bottom:.5rem'><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/sports/index.html" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">厚生労働省 身体活動・運動</a> — 健康を維持するための適切な運動量の目安</li>
+<li style='margin-bottom:.5rem'><a href="https://www.jma.or.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">日本医師会 健康情報</a> — 医療・健康に関する正確な情報提供</li>
+</ul>
+</div>
+</div>
+<!-- r31-tool-about -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#f0f9ff;border:1px solid #bae6fd;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#0c4a6e">ℹ️ このツールについて</h3>
+<p style="margin:0;font-size:.88rem;color:#0c4a6e;line-height:1.9">「食物アレルギー・除去食診断」はAppADayCreatorが提供する無料Webツールです。健康・医療に関する情報を素早く手軽に確認できます。会員登録・アプリインストール不要で、ブラウザからすぐにご利用いただけます。すべての処理はブラウザ内で完結するため、入力した情報が外部サーバーに送信されることはなく、プライバシーも保護されます。AppADayCreatorでは、日常生活のあらゆるシーンで役立つWebツールを400本以上無料で提供しています。金融・健康・育児・キャリア・旅行など幅広いカテゴリのツールをご活用ください。</p>
+</div>
+</div>
+<!-- r31-extra-guide -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+<h3 style="font-size:.95rem;font-weight:700;margin:1.25rem 0 .6rem;color:#1e293b">関連ツールのご紹介</h3>
+
+</div>
+</div>
+
+<footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+        <p><a target="_blank" rel="noopener noreferrer" href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
         | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
         | <a href="terms.html" style="color:white;">利用規約</a>
         | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
@@ -182,10 +361,10 @@
 
     <script>
     const RESULTS = [
-      {title:'🌾 小麦アレルギータイプ — グルテンフリー生活のポイント',desc:'小麦アレルギーが疑われます。米・米粉・そば粉（そばアレルギーがなければ）・コーンスターチなどが代替主食になります。市販の「グルテンフリー」製品も増えており、楽天などで購入可能。外食では米粉麺やフォーを扱う店を探しましょう。確定診断は血液検査（特異的IgE検査）で行えます。必ず専門の医師に相談してください。'},
-      {title:'🥛 乳製品アレルギータイプ — 豆乳・アーモンドミルクへの切り替え',desc:'乳製品アレルギーが疑われます。牛乳→豆乳・アーモンドミルク・オーツミルク、チーズ→豆腐ベースのヴィーガンチーズなどが代替になります。カルシウムは小魚・緑葉野菜・豆類から補いましょう。市販のお菓子・パンにも乳成分が含まれるため、成分表示の「乳」「バター」「クリーム」の確認が必須です。'},
-      {title:'🥚 卵アレルギータイプ — 卵なし料理のコツ',desc:'卵アレルギーが疑われます。料理でのつなぎには「亜麻仁フラックスエッグ（亜麻仁粉+水）」、マヨネーズ代替には豆乳マヨが使えます。外食では「卵不使用」表記を確認しましょう。加工食品の「卵黄・全卵・卵白・マヨネーズ」表示に注意が必要です。症状が重い場合はエピペン処方について医師に相談することをお勧めします。'},
-      {title:'🦐 魚介・甲殻類アレルギータイプ — 外食時の注意点',desc:'魚介・甲殻類アレルギーが疑われます。えび・カニ・いか・たこなどは表示義務があるため、加工食品の確認が比較的しやすいです。だし・ソースに魚介エキスが含まれることがあるため外食時は調理方法を確認しましょう。タンパク質はチキン・豆類・大豆製品で十分補えます。必ず医師の診断を受け、アナフィラキシーのリスクがある場合はエピペンの携帯を検討してください。'}
+      {title:'🌾 小麦アレルギータイプ — グルテンフリー生活のポイント',desc:'小麦アレルギーが疑われます。米・米粉・そば粉（そばアレルギーがなければ）・コーンスターチなどが代替主食になります。市販の「グルテンフリー」製品も増えており、楽天などで購入可能。外食では米粉麺やフォーを扱う店を探しましょう。確定診断は血液検査（特異的IgE検査）で行えます。必ず専門の医師に相談してください。',emoji:'🌾',type:'小麦'},
+      {title:'🥛 乳製品アレルギータイプ — 豆乳・アーモンドミルクへの切り替え',desc:'乳製品アレルギーが疑われます。牛乳→豆乳・アーモンドミルク・オーツミルク、チーズ→豆腐ベースのヴィーガンチーズなどが代替になります。カルシウムは小魚・緑葉野菜・豆類から補いましょう。市販のお菓子・パンにも乳成分が含まれるため、成分表示の「乳」「バター」「クリーム」の確認が必須です。',emoji:'🥛',type:'乳製品'},
+      {title:'🥚 卵アレルギータイプ — 卵なし料理のコツ',desc:'卵アレルギーが疑われます。料理でのつなぎには「亜麻仁フラックスエッグ（亜麻仁粉+水）」、マヨネーズ代替には豆乳マヨが使えます。外食では「卵不使用」表記を確認しましょう。加工食品の「卵黄・全卵・卵白・マヨネーズ」表示に注意が必要です。症状が重い場合はエピペン処方について医師に相談することをお勧めします。',emoji:'🥚',type:'卵'},
+      {title:'🦐 魚介・甲殻類アレルギータイプ — 外食時の注意点',desc:'魚介・甲殻類アレルギーが疑われます。えび・カニ・いか・たこなどは表示義務があるため、加工食品の確認が比較的しやすいです。だし・ソースに魚介エキスが含まれることがあるため外食時は調理方法を確認しましょう。タンパク質はチキン・豆類・大豆製品で十分補えます。必ず医師の診断を受け、アナフィラキシーのリスクがある場合はエピペンの携帯を検討してください。',emoji:'🦐',type:'魚介'}
     ];
     const QUESTIONS = [
       {text:'Q1. アレルギー症状が出やすいのはどんな時？',opts:['特定の食べ物を食べた直後（30分以内）','食後数時間〜翌日にかけて','季節に関係なく慢性的に出る','まだはっきり分からない']},
@@ -207,35 +386,163 @@
       if(a[0]===0) { scores[2]+=1; scores[3]+=1; }
       if(a[0]===2) { scores[0]+=1; scores[1]+=1; }
       const best = scores.indexOf(Math.max(...scores));
-      return RESULTS[best];
+      return {...RESULTS[best], scores, index: best};
     }
-    // ★以下変更不要★
+    let resultChart = null;
+    function drawChart(scores) {
+      if(resultChart) resultChart.destroy();
+      const ctx = document.getElementById('result-chart')?.getContext('2d');
+      if(!ctx) return;
+      resultChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['小麦','乳製品','卵','魚介'],
+          datasets: [{
+            label: 'アレルゲンスコア',
+            data: scores,
+            backgroundColor: ['#FCD34D','#60A5FA','#F87171','#34D399'],
+            borderRadius: 6,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: {legend: {display: false}},
+          scales: {x: {beginAtZero: true, max: 8, ticks: {stepSize: 2}}}
+        }
+      });
+    }
+    function loadHistory() {
+      const hist = JSON.parse(localStorage.getItem('allergyHistory') || '[]');
+      const list = document.getElementById('history-list');
+      if(hist.length === 0) {
+        list.innerHTML = '<p style="color:#999;font-size:13px;">診断履歴がありません</p>';
+        return;
+      }
+      list.innerHTML = hist.map((h,i) =>
+        `<div style="border-bottom:1px solid #e5e7eb;padding:12px 0;font-size:13px;cursor:pointer;" onclick="restoreResult(${i})" title="クリックで復元">
+          <p style="margin:0 0 4px;font-weight:600;color:#374151;">${h.date}</p>
+          <p style="margin:0;color:#6b7280;">${h.type} (スコア: ${Math.max(...h.scores)})</p>
+        </div>`
+      ).join('');
+    }
+    function saveResult(result, answers) {
+      const hist = JSON.parse(localStorage.getItem('allergyHistory') || '[]');
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('ja-JP', {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+      hist.unshift({
+        date: dateStr,
+        type: result.type,
+        scores: result.scores,
+        answers: answers,
+        title: result.title,
+        desc: result.desc,
+        emoji: result.emoji,
+        index: result.index
+      });
+      if(hist.length > 20) hist.pop();
+      localStorage.setItem('allergyHistory', JSON.stringify(hist));
+      loadHistory();
+    }
+    function restoreResult(idx) {
+      const hist = JSON.parse(localStorage.getItem('allergyHistory') || '[]');
+      if(!hist[idx]) return;
+      const h = hist[idx];
+      document.getElementById('r-title').textContent = h.title;
+      document.getElementById('r-desc').textContent = h.desc;
+      drawChart(h.scores);
+      window.scrollTo({top: document.getElementById('result').offsetTop - 100, behavior:'smooth'});
+    }
+    function downloadResult() {
+      const title = document.getElementById('r-title').textContent;
+      const desc = document.getElementById('r-desc').textContent;
+      const text = `${title}\n\n${desc}\n\nアレルギー・除去食診断\nhttps://appadaycreator.com/food-allergy-checker/`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('結果をクリップボードにコピーしました！');
+      }).catch(() => {
+        prompt('以下をコピーしてください:\n', text);
+      });
+    }
+    function printResult() {
+      const title = document.getElementById('r-title').textContent;
+      const desc = document.getElementById('r-desc').textContent;
+      const w = window.open('', '', 'width=800,height=600');
+      w.document.write(`
+        <html>
+        <head><meta charset="UTF-8"><title>${title}</title></head>
+        <body style="font-family:Arial;padding:20px;line-height:1.8;">
+        <h1>${title}</h1>
+        <p>${desc}</p>
+        <p style="color:#999;margin-top:40px;font-size:12px;">https://appadaycreator.com/food-allergy-checker/</p>
+        </body>
+        </html>
+      `);
+      w.print();
+      setTimeout(() => w.close(), 1000);
+    }
     const BTN='#6366F1'; let cur=0; const ans=[];
-    document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('q-total').textContent=QUESTIONS.length; });
-    function startQuiz(){ cur=0;ans.length=0; document.getElementById('quiz-start').style.display='none'; document.getElementById('quiz-area').style.display='block'; document.getElementById('result').classList.remove('show'); renderQ(); }
-    function renderQ(){
-      const q=QUESTIONS[cur];
-      document.getElementById('q-num').textContent=cur+1;
-      document.getElementById('q-bar').style.width=((cur+1)/QUESTIONS.length*100)+'%';
-      document.getElementById('q-text').textContent=q.text;
-      document.getElementById('q-options').innerHTML=q.opts.map((o,i)=>`<button onclick="answer(${i})" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;background:#fff;text-align:left;">${o}</button>`).join('');
+    document.addEventListener('DOMContentLoaded',() => {
+      document.getElementById('q-total').textContent = QUESTIONS.length;
+      loadHistory();
+    });
+    function startQuiz() {
+      cur=0;ans.length=0;
+      document.getElementById('quiz-start').style.display='none';
+      document.getElementById('quiz-area').style.display='block';
+      document.getElementById('result').classList.remove('show');
+      renderQ();
     }
-    function answer(idx){ ans.push({idx}); cur++; if(cur>=QUESTIONS.length) showResult(); else renderQ(); }
-    function showResult(){
+    function renderQ(){
+      const q = QUESTIONS[cur];
+      document.getElementById('q-num').textContent = cur + 1;
+      document.getElementById('q-bar').style.width = ((cur + 1) / QUESTIONS.length * 100) + '%';
+      document.getElementById('q-text').textContent = q.text;
+      document.getElementById('q-options').innerHTML = q.opts.map((o,i) =>
+        `<button onclick="answer(${i})" style="width:100%;padding:12px;margin-bottom:8px;border:2px solid #e5e7eb;border-radius:10px;font-size:14px;cursor:pointer;background:#fff;text-align:left;">${o}</button>`
+      ).join('');
+    }
+    function answer(idx) {
+      ans.push({idx});
+      cur++;
+      if(cur >= QUESTIONS.length) showResult();
+      else renderQ();
+    }
+    function showResult() {
       document.getElementById('quiz-area').style.display='none';
-      const r=getResult(ans);
-      document.getElementById('r-title').textContent=r.title;
-      document.getElementById('r-desc').textContent=r.desc;
+      const r = getResult(ans);
+      document.getElementById('r-title').textContent = r.title;
+      document.getElementById('r-desc').textContent = r.desc;
+      drawChart(r.scores);
+      saveResult(r, ans);
       document.getElementById('result').classList.add('show');
     }
     </script>
-    <!-- Service Worker 登録 -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/food-allergy-checker/sw.js').catch(() => {});
-        });
-      }
-    </script>
+<div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
+<a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
+</div>
+<div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
+<p style="margin:0 0 .5rem;font-weight:700;color:#3730a3">📖 お役立ちコラム</p>
+<ul style="margin:0;padding-left:1.25rem;color:#4f46e5;line-height:2">
+<li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資の始め方【初心者完全ガイド】</a></li>
+<li><a href="/blog/nisa-comparison/" style="color:#4f46e5">新NISA vs iDeCo 徹底比較</a></li>
+<li><a href="/blog/investment-risk-management/" style="color:#4f46e5">投資のリスク管理入門</a></li>
+</ul>
+</div>
+<!-- r17-mobile-ux -->
+<a href="#top" id="back-to-top" aria-label="ページトップへ戻る" style="display:none;position:fixed;bottom:24px;right:20px;background:#4f46e5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.4rem;line-height:48px;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(79,70,229,.4);z-index:9000;cursor:pointer" title="ページトップへ">↑</a>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, {passive:true});
+})();
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/food-allergy-checker/sw.js').catch(e => {});
+}
+</script>
 </body>
 </html>
